@@ -1,4 +1,4 @@
-package main
+package unknownaccess
 
 import (
 	"bytes"
@@ -7,7 +7,6 @@ import (
 	"crypto/rand"
 	"crypto/sha256"
 	"errors"
-	"fmt"
 	"io"
 	"math/big"
 
@@ -32,39 +31,6 @@ type Block struct {
 }
 
 type Offset uint16
-
-func main() {
-	block := NewBlock()
-
-	if err := block.Encrypt("password1", []byte("my secret 1")); err != nil {
-		panic(err)
-	}
-
-	if err := block.Encrypt("password2", []byte("my secret 2")); err != nil {
-		panic(err)
-	}
-
-	if err := block.Encrypt("password3", []byte("my secret 3")); err != nil {
-		panic(err)
-	}
-
-	marshaled, err := block.Marshal()
-	if err != nil {
-		panic(err)
-	}
-
-	b2, err := Unmarshal(marshaled)
-	if err != nil {
-		panic(err)
-	}
-
-	data, err := b2.Decrypt("password1")
-	if err != nil {
-		panic(err)
-	}
-
-	fmt.Println(string(data))
-}
 
 func NewBlock() *Block {
 	b := &Block{}
