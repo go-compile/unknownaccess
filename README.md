@@ -1,4 +1,4 @@
-# UnknownAccess
+# <img height="20px" src="./.github/images/logo.svg"/> UnknownAccess
 
 UnknownAccess is a plausible deniable secret encryption scheme. Utilising; AES_256_GCM Argon2Key KDF and HKDF. It allows you to store upto 3 unique secrets; Cryptocurrency seeds, 2FA codes, Passwords etc, in a single output of ciphertext. Depending on the key used to decrypt, the outputted secret will be different.
 
