@@ -132,3 +132,29 @@ func TestEncryptDecrypt3Secrets(t *testing.T) {
 		t.Fatal("secrets do not match")
 	}
 }
+
+func TestTooManySecrets(t *testing.T) {
+	block := unknownaccess.NewBlock()
+
+	secret1 := []byte("This is secret number 1.")
+	secret2 := []byte("This is secret number 2.")
+	secret3 := []byte("This is secret number 3.")
+	secret4 := []byte("This is secret number 3.")
+
+	if err := block.Encrypt("password1", secret1); err != nil {
+		panic(err)
+	}
+
+	if err := block.Encrypt("password2", secret2); err != nil {
+		panic(err)
+	}
+
+	if err := block.Encrypt("password3", secret3); err != nil {
+		panic(err)
+	}
+
+	if err := block.Encrypt("password4", secret4); err == nil {
+		t.Fatal("overflow secret containers")
+	}
+
+}
