@@ -23,6 +23,7 @@ const (
 var (
 	ErrFailDecrypt = errors.New("failed to decrypt block")
 	ErrDataFull    = errors.New("all data blocks full")
+	ErrContentBig  = errors.New("content too long")
 )
 
 type Block struct {
@@ -52,6 +53,9 @@ func (b *Block) SetS3(passphrase string, data []byte) error {
 }
 
 func (b *Block) setSecret(position uint8, passphrase string, data []byte) error {
+	if len(data)+authTagSize > dataSize {
+		return ErrContentBig
+	}
 
 	nonce, err := b.iv(position)
 	if err != nil {
