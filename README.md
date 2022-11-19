@@ -21,4 +21,6 @@ This allows you to handover a decoy secret (e.g. Bitcoin seed) to an adversary, 
 
 ![PROTOCOL FIGURE TWO](./.github/images/banners2.png)
 
+*Note position/order of encrypted volumes/"data blocks" are randomised and volume sizes are fixed to deny any inference on the amount of hidden volumes and volume sizes*
+
 ---
