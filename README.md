@@ -4,9 +4,21 @@ UnknownAccess is a plausible deniable secret encryption scheme. Utilising; AES_2
 
 This allows you to handover a decoy secret (e.g. Bitcoin seed) to an adversary, without the adversary being able to prove the secret is a decoy. Intern, allowing you to maintain privacy, even when being physically coerced.
 
+---
+
+![PROTOCOL FIGURE ONE](./.github/images/banners.png)
+
+---
+
 ## Security Guarantees
 - No one can infer how many encrypted volumes are in use.
 	- Even if k1 or k2 or k3 is compromised.
 - 256bit AES symmetric encryption.
 - ASIC resistant, GPU resistant using Argon2 KDF
 - Rainbow table resistant (via use of salt/nonce unique to each secret data block)
+
+---
+
+![PROTOCOL FIGURE TWO](./.github/images/banners2.png)
+
+---
