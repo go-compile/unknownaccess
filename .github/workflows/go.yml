@@ -7,7 +7,7 @@ on:
     branches: [master]
 
 jobs:
-  test-linux-go-1.12:
+  test-linux-go-1-12:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -19,7 +19,7 @@ jobs:
 
       - name: Test
         run: go test -v ./...
-  test-linux-go-1.16:
+  test-linux-go-1-16:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -31,7 +31,7 @@ jobs:
 
       - name: Test
         run: go test -v ./...
-  test-linux-go-1.18:
+  test-linux-go-1-18:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
